@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationViaCep.API", "IntegrationViaCep\IntegrationViaCep.API.csproj", "{A9BF230C-24F7-461B-9047-48810B484574}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationViaCep.Core", "IntegrationViaCep.Core\IntegrationViaCep.Core.csproj", "{6C7B1CC2-C8F4-4233-B450-D97EB782E180}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9BF230C-24F7-461B-9047-48810B484574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9BF230C-24F7-461B-9047-48810B484574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9BF230C-24F7-461B-9047-48810B484574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9BF230C-24F7-461B-9047-48810B484574}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C7B1CC2-C8F4-4233-B450-D97EB782E180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C7B1CC2-C8F4-4233-B450-D97EB782E180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C7B1CC2-C8F4-4233-B450-D97EB782E180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C7B1CC2-C8F4-4233-B450-D97EB782E180}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8AAFEC6A-0EF3-459F-8CBE-5D56538BF020}
+	EndGlobalSection
+EndGlobal
