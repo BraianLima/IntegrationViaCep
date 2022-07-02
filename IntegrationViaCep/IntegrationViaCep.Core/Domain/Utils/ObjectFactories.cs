@@ -1,5 +1,5 @@
 ﻿using IntegrationViaCep.Core.Domain.Global;
-using IntegrationViaCep.Core.Domain.Models.Results;
+using IntegrationViaCep.Core.Domain.Models.Outputs;
 using IntegrationViaCep.Core.Domain.Responses;
 using IntegrationViaCep.Core.Domain.Utils.Interfaces;
 using System.Net;
@@ -26,11 +26,11 @@ namespace IntegrationViaCep.Core.Domain.Utils
             };
         }
         
-        public Cep NewCep()
+        public Cep NewCep(string error)
         {
             return new Cep()
             {
-                Error = "Couldn't get cep"
+                Error = error
             };
         }
     }

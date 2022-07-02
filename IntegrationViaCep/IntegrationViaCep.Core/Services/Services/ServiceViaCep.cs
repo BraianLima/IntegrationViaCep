@@ -1,4 +1,5 @@
-﻿using IntegrationViaCep.Core.Domain.Models.Results;
+﻿using IntegrationViaCep.Core.Domain.Global;
+using IntegrationViaCep.Core.Domain.Models.Outputs;
 using IntegrationViaCep.Core.Domain.Utils.Interfaces;
 using IntegrationViaCep.Core.Services.Interfaces;
 using Newtonsoft.Json;
@@ -31,7 +32,7 @@ namespace IntegrationViaCep.Core.Services.Services
             });
         }
 
-        public async Task<Cep> JsonDeserializeToCep(string json)
+        public async Task<Cep> JsonDeserializeToCepAsync(string json)
         {
             return await Task.Run(() =>
             {
@@ -39,17 +40,17 @@ namespace IntegrationViaCep.Core.Services.Services
                 {
                     Cep? cep = JsonConvert.DeserializeObject<Cep>(json);
                     if (cep == null)
-                        return _objectFactories.NewCep();
+                        return _objectFactories.NewCep(Messages.ERROR_GET_CEP);
 
                     return cep;
                 }catch (Exception)
                 {
-                    return _objectFactories.NewCep();
+                    return _objectFactories.NewCep(Messages.ERROR_GET_CEP);
                 }
             });
         }
         
-        public async Task<string> RequestViaCep(HttpClient httpClient, string path)
+        public async Task<string> RequestViaCepAsync(HttpClient httpClient, string path)
         {
             HttpResponseMessage response = await httpClient.GetAsync(path);
             return await response.Content.ReadAsStringAsync();

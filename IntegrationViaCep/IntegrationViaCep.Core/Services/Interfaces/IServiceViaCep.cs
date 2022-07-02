@@ -1,11 +1,11 @@
-﻿using IntegrationViaCep.Core.Domain.Models.Results;
+﻿using IntegrationViaCep.Core.Domain.Models.Outputs;
 
 namespace IntegrationViaCep.Core.Services.Interfaces
 {
     public interface IServiceViaCep
     {
         Task<HttpClient> InitializeHttpClientAsync(string baseAddress);
-        Task<Cep> JsonDeserializeToCep(string json);
-        Task<string> RequestViaCep(HttpClient httpClient, string path);
+        Task<Cep> JsonDeserializeToCepAsync(string json);
+        Task<string> RequestViaCepAsync(HttpClient httpClient, string path);
     }
 }

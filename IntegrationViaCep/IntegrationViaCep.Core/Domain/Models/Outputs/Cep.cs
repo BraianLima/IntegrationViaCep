@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace IntegrationViaCep.Core.Domain.Models.Results
+namespace IntegrationViaCep.Core.Domain.Models.Outputs
 {
     public class Cep
     {
