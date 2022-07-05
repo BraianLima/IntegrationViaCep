@@ -26,8 +26,7 @@ namespace IntegrationViaCep.Controllers
         [ProducesResponseType(typeof(ResponsePresentationCep), (int)HttpStatusCode.BadRequest)]        
         public async Task<IActionResult> GetPostalCodeAsync([BindRequired][FromQuery] string cepCode)
         {
-            Response response = await _service.GetPostalCodeAsync(new PostalCode{ CepCode = cepCode });
-            return ReturnActionResult(response);
+            return ReturnActionResult(await _service.GetPostalCodeAsync(new PostalCode { CepCode = cepCode }));
         }
 
         [HttpPost("PostSearchPostalCode")]
@@ -37,8 +36,7 @@ namespace IntegrationViaCep.Controllers
         [ProducesResponseType(typeof(ResponsePresentationSearchPostalCode), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> PostSearchPostalCode([FromBody] SearchPostalCode searchPostalCode)
         {
-            Response response = await _service.PostSearchPostalCodeAsync(searchPostalCode);
-            return ReturnActionResult(response);
+            return ReturnActionResult(await _service.PostSearchPostalCodeAsync(searchPostalCode));
         }
     }
 }

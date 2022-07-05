@@ -14,15 +14,11 @@ namespace IntegrationViaCep.Core.Application.Services
             _viaCepHandler = viaCepHandler;
         }
 
-        public async Task<Response> GetPostalCodeAsync(PostalCode postalCode)
-        {
-            return await _viaCepHandler.GetPostalCodeAsync(postalCode);
-        }        
+        public async Task<Response> GetPostalCodeAsync(PostalCode postalCode) 
+            => await _viaCepHandler.GetPostalCodeAsync(postalCode);     
         
-        public async Task<Response> PostSearchPostalCodeAsync(SearchPostalCode searchPostalCode)
-        {
-            return await _viaCepHandler.PostSearchPostalCodeAsync(searchPostalCode);
-        }        
+        public async Task<Response> PostSearchPostalCodeAsync(SearchPostalCode searchPostalCode) 
+            => await _viaCepHandler.PostSearchPostalCodeAsync(searchPostalCode);       
 
     }
 }
