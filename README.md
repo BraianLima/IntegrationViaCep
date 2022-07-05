@@ -24,6 +24,6 @@
 - .Net 6
 - API Rest
 
-## Instalação
+## Utilização
 - Para consultar o endpoint GetPostalCode deve ser enviado um CEP de 8 caracteres
 - Para consultar o endpoint PostSearchPostalCode deve ser enviado um objeto com o estado (UF), cidade e nome da rua (ou parte do nome da rua)
