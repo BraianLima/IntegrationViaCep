@@ -1,6 +1,6 @@
 #################################### EN ###########################################
 
-# Integration system with ViaCep
+# Integration system with ViaCep - returning Brazil postal codes
 
 ### Developed in C#, using .Net 6
 
@@ -15,7 +15,7 @@
 
 ################################### PT-BR #########################################
 
-# Sistema de integração com o ViaCep
+# Sistema de integração com o ViaCep - retornando CEPs do Brasil
 
 ### Desenvolvido em C#, using .Net 6
 
