@@ -23,10 +23,21 @@ namespace IntegrationViaCep.Controllers
         [Produces("application/json")]
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(ResponsePresentationCep), (int)HttpStatusCode.OK)]
-        [ProducesResponseType(typeof(ResponsePresentationCep), (int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> GetPostalCodeAsync([BindRequired][FromQuery] string zipCode)
+        [ProducesResponseType(typeof(ResponsePresentationCep), (int)HttpStatusCode.BadRequest)]        
+        public async Task<IActionResult> GetPostalCodeAsync([BindRequired][FromQuery] string cepCode)
         {
-            Response response = await _service.GetPostalCodeAsync(new PostalCode{ZipCode = zipCode});
+            Response response = await _service.GetPostalCodeAsync(new PostalCode{ CepCode = cepCode });
+            return ReturnActionResult(response);
+        }
+
+        [HttpPost("PostSearchPostalCode")]
+        [Produces("application/json")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(typeof(ResponsePresentationSearchPostalCode), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ResponsePresentationSearchPostalCode), (int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> PostSearchPostalCode([FromBody] SearchPostalCode searchPostalCode)
+        {
+            Response response = await _service.PostSearchPostalCodeAsync(searchPostalCode);
             return ReturnActionResult(response);
         }
     }

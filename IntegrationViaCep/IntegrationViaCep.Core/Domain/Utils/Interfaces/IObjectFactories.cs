@@ -7,5 +7,6 @@ namespace IntegrationViaCep.Core.Domain.Utils.Interfaces
     {
         Response ReturnResponseToService(bool success, object data);
         Cep NewCep(string error);
+        List<Cep> NewListCep();
     }
 }

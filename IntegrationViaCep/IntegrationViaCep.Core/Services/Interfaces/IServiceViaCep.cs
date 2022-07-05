@@ -6,6 +6,7 @@ namespace IntegrationViaCep.Core.Services.Interfaces
     {
         Task<HttpClient> InitializeHttpClientAsync(string baseAddress);
         Task<Cep> JsonDeserializeToCepAsync(string json);
+        Task<List<Cep>> JsonDeserializeToListCepAsync(string json);
         Task<string> RequestViaCepAsync(HttpClient httpClient, string path);
     }
 }

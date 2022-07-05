@@ -33,5 +33,10 @@ namespace IntegrationViaCep.Core.Domain.Utils
                 Error = error
             };
         }
+
+        public List<Cep> NewListCep()
+        {
+            return new List<Cep>();
+        }
     }
 }

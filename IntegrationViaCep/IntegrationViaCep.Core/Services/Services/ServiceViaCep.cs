@@ -49,7 +49,27 @@ namespace IntegrationViaCep.Core.Services.Services
                 }
             });
         }
-        
+
+        public async Task<List<Cep>> JsonDeserializeToListCepAsync(string json)
+        {
+            return await Task.Run(() =>
+            {
+                try
+                {
+                    List<Cep>? listCep = JsonConvert.DeserializeObject<List<Cep>>(json);
+
+                    if (listCep == null)
+                        return _objectFactories.NewListCep();
+
+                    return listCep;
+                }
+                catch (Exception)
+                {
+                    return _objectFactories.NewListCep();
+                }
+            });
+        }
+
         public async Task<string> RequestViaCepAsync(HttpClient httpClient, string path)
         {
             HttpResponseMessage response = await httpClient.GetAsync(path);

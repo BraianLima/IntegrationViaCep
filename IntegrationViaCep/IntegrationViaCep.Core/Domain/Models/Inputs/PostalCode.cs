@@ -5,6 +5,6 @@ namespace IntegrationViaCep.Core.Domain.Models.Inputs
     public class PostalCode
     {
         [Required]
-        public string ZipCode { get; set; } = string.Empty;
+        public string CepCode { get; set; } = string.Empty;
     }
 }

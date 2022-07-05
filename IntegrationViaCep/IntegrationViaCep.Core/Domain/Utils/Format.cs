@@ -1,13 +1,24 @@
-﻿using IntegrationViaCep.Core.Domain.Utils.Interfaces;
+﻿using IntegrationViaCep.Core.Domain.Models.Inputs;
+using IntegrationViaCep.Core.Domain.Utils.Interfaces;
 
 namespace IntegrationViaCep.Core.Domain.Utils
 {
     public class Format : IFormat
     {
-        public string FormatZipCode(string zipCode)
+        public string FormatCepCodeToRequest(string cepCode)
         {
-            zipCode = zipCode.Replace(" ", "");
-            return GetNumbers(zipCode);
+            return $"ws/{FormatCepCode(cepCode)}/json";
+        }
+
+        public string FormatPathSearchPostalCodeToRequest(SearchPostalCode searchPostalCode)
+        {
+            return $"ws/{searchPostalCode.State}/{searchPostalCode.County}/{searchPostalCode.PublicPlace}/json";
+        }
+
+        private string FormatCepCode(string cepCode)
+        {
+            cepCode = cepCode.Replace(" ", "");
+            return GetNumbers(cepCode);
         }
 
         private string GetNumbers(string value)
@@ -23,5 +34,6 @@ namespace IntegrationViaCep.Core.Domain.Utils
 
             return tmp;
         }
+
     }
 }

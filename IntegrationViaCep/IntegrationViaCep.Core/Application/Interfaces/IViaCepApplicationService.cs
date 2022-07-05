@@ -6,5 +6,6 @@ namespace IntegrationViaCep.Core.Application.Interfaces
     public interface IViaCepApplicationService
     {
         Task<Response> GetPostalCodeAsync(PostalCode postalCode);
+        Task<Response> PostSearchPostalCodeAsync(SearchPostalCode searchPostalCode);
     }
 }

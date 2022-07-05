@@ -18,6 +18,11 @@ namespace IntegrationViaCep.Core.Application.Services
         {
             return await _viaCepHandler.GetPostalCodeAsync(postalCode);
         }        
+        
+        public async Task<Response> PostSearchPostalCodeAsync(SearchPostalCode searchPostalCode)
+        {
+            return await _viaCepHandler.PostSearchPostalCodeAsync(searchPostalCode);
+        }        
 
     }
 }

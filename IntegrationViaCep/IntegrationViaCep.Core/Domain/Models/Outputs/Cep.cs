@@ -5,7 +5,7 @@ namespace IntegrationViaCep.Core.Domain.Models.Outputs
     public class Cep
     {
         [JsonProperty("cep", Required = Required.Default)]
-        public string? PostalCode { get; set; }
+        public string? CepCode { get; set; }
 
         [JsonProperty("logradouro", Required = Required.Default)]
         public string? PublicPlace { get; set; }

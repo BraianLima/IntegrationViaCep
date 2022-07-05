@@ -11,13 +11,24 @@ namespace IntegrationViaCep.Core.Domain.Handlers.Validators
             if (IsNull(postalCode))
                 return false;
 
-            if (IsNullOrEmpty(postalCode.ZipCode))
+            if (IsNullOrEmpty(postalCode.CepCode))
                 return false;
 
-            if (postalCode.ZipCode.Any(x => char.IsLetter(x)))
+            if (postalCode.CepCode.Any(x => char.IsLetter(x)))
                 return false;
 
-            if (postalCode.ZipCode.Count(x => char.IsNumber(x)) != GlobalVariables.COUNT_NUMBERS_POSTAL_CODE)
+            if (postalCode.CepCode.Count(x => char.IsNumber(x)) != GlobalVariables.COUNT_NUMBERS_POSTAL_CODE)
+                return false;
+
+            return true;
+        }
+
+        public bool SearchPostalCodeIsValid(SearchPostalCode searchPostalCode)
+        {
+            if (IsNull(searchPostalCode))
+                return false;
+
+            if (searchPostalCode.State.Length != GlobalVariables.COUNT_CHARACTERS_STATE)
                 return false;
 
             return true;
