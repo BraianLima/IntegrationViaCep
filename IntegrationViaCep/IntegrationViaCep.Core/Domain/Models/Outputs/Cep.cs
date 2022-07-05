@@ -14,7 +14,7 @@ namespace IntegrationViaCep.Core.Domain.Models.Outputs
         public string? Complement { get; set; }
 
         [JsonProperty("bairro", Required = Required.Default)]
-        public string? Distric { get; set; }
+        public string? District { get; set; }
 
         [JsonProperty("localidade", Required = Required.Default)]
         public string? County { get; set; }

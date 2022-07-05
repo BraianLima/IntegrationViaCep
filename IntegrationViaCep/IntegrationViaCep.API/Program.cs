@@ -1,4 +1,5 @@
 using IntegrationViaCep.Core.InfraCrossCutting;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,7 +7,22 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(opt =>
+{
+    opt.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "Integration ViaCep API",
+        Contact = new OpenApiContact
+        {
+            Name = "Braian Freitas de Lima",
+            Email = "braianfreitasdelima@gmail.com",
+            Url = new Uri("https://www.linkedin.com/in/braian-freitas-de-lima-8968a2115/")
+
+        },
+        Description = "API integration with ViaCep",
+        Version = "v1",
+    });
+});
 
 ConfigurationIoc.Register(builder.Services);
 

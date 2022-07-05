@@ -17,6 +17,7 @@ namespace IntegrationViaCep.Core.Application.Services
         public async Task<Response> GetPostalCodeAsync(PostalCode postalCode)
         {
             return await _viaCepHandler.GetPostalCodeAsync(postalCode);
-        }
+        }        
+
     }
 }
