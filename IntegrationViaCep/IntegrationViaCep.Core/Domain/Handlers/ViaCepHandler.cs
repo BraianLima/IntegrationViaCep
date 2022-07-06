@@ -27,44 +27,71 @@ namespace IntegrationViaCep.Core.Domain.Handlers
             _format = format;
         }
 
+        /// <summary>
+        /// returns the CEP object inside the response object.
+        /// </summary>
+        /// <param name="postalCode">Object containing CEP code.</param>
+        /// <returns></returns>
         public async Task<Response> GetPostalCodeAsync(PostalCode postalCode)
         {
-            bool isValid = _viaCepValidators.PostalCodeIsValid(postalCode);
+            //validate the PostalCode
+            bool isValid = _viaCepValidators.PostalCodeIsValid(postalCode); 
+
             if (isValid)
             {
+                //initialize HttpClient to perform the request, using the ViaCep base address
                 HttpClient httpClient = await _serviceViaCep
                     .InitializeHttpClientAsync(GlobalVariables.BASE_ADDRESS_VIA_CEP);
 
-                string apiResponse = await _serviceViaCep
-                    .RequestViaCepAsync(httpClient, _format.FormatCepCodeToRequest(postalCode.CepCode));
+                //mount the endpoint
+                string endpoint = _format.MountEndpointToRequestAddressUsingCepCode(postalCode.CepCode); 
 
+                //perform the request
+                string apiResponse = await _serviceViaCep.RequestViaCepAsync(httpClient, endpoint);
+
+                //deserialize json to CEP object
                 Cep cep = await _serviceViaCep.JsonDeserializeToCepAsync(apiResponse);
 
+                //instance CEP object and return
                 return _objectFactories.ReturnResponseToService(cep.IsValid, cep);
             }
 
+            //instance CEP object with error and return
             return _objectFactories
                 .ReturnResponseToService(isValid, _objectFactories.NewCep(Messages.ERROR_GET_CEP));
         }
 
+        /// <summary>
+        /// Does the research, the research is done by making a request on ViaCep.
+        /// </summary>
+        /// <param name="searchPostalCode">SearchPostalCode object.</param>
+        /// <returns></returns>
         public async Task<Response> PostSearchPostalCodeAsync(SearchPostalCode searchPostalCode)
         {
+            //validate the SearchPostalCode
             bool isValid = _viaCepValidators.SearchPostalCodeIsValid(searchPostalCode);
+
             if (isValid)
             {
+                //initialize HttpClient to perform the request, using the ViaCep base address
                 HttpClient httpClient = await _serviceViaCep
                     .InitializeHttpClientAsync(GlobalVariables.BASE_ADDRESS_VIA_CEP);
 
-                string apiResponse = await _serviceViaCep
-                    .RequestViaCepAsync(httpClient, _format.FormatPathSearchPostalCodeToRequest(searchPostalCode));
+                //mount the endpoint
+                string endpoint = _format.MountEndpointToRequestAddressesUsingSearchPostalCode(searchPostalCode);
 
+                //perform the request
+                string apiResponse = await _serviceViaCep.RequestViaCepAsync(httpClient, endpoint);
+
+                //deserialize json to List<Cep> object
                 List<Cep> listCep = await _serviceViaCep.JsonDeserializeToListCepAsync(apiResponse);
 
+                //instance List<Cep> object and return
                 return _objectFactories.ReturnResponseToService(listCep.Count > 0, listCep);
             }
 
-            return _objectFactories
-                .ReturnResponseToService(isValid, _objectFactories.NewListCep());
+            //instance List<Cep> object with error and return
+            return _objectFactories.ReturnResponseToService(isValid, _objectFactories.NewListCep());
         }
 
     }

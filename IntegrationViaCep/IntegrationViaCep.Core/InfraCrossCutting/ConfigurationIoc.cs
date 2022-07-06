@@ -12,8 +12,15 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace IntegrationViaCep.Core.InfraCrossCutting
 {
+    /// <summary>
+    /// Services Configuration class
+    /// </summary>
     public static class ConfigurationIoc
     {
+        /// <summary>
+        /// Initialize inject dependency services.
+        /// </summary>
+        /// <param name="services"></param>
         public static void Register(IServiceCollection services)
         {
             services.AddTransient<IServiceViaCep, ServiceViaCep>();

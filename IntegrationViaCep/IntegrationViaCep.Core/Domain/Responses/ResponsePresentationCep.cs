@@ -4,6 +4,9 @@ using System.Net;
 
 namespace IntegrationViaCep.Core.Domain.Responses
 {
+    /// <summary>
+    /// Class of presentation to Data Annotation in PostalCodeController.
+    /// </summary>
     public class ResponsePresentationCep
     {
         [Required]

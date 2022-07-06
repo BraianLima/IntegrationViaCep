@@ -19,6 +19,11 @@ namespace IntegrationViaCep.Controllers
             _service = service;
         } 
 
+        /// <summary>
+        /// Returns the address the Cep code.
+        /// </summary>
+        /// <param name="cepCode">Value of Cep code.</param>
+        /// <returns></returns>
         [HttpGet("GetPostalCode")]
         [Produces("application/json")]
         [Consumes(MediaTypeNames.Application.Json)]
@@ -29,6 +34,12 @@ namespace IntegrationViaCep.Controllers
             return ReturnActionResult(await _service.GetPostalCodeAsync(new PostalCode { CepCode = cepCode }));
         }
 
+        /// <summary>
+        /// Search perform, and returns the data addresses.
+        /// </summary>
+        /// <param name="searchPostalCode">SearchPostalCode object containing 
+        /// State, County and partial public place to search.</param>
+        /// <returns></returns>
         [HttpPost("PostSearchPostalCode")]
         [Produces("application/json")]
         [Consumes(MediaTypeNames.Application.Json)]

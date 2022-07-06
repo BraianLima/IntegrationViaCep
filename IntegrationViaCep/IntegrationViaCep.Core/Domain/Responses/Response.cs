@@ -2,6 +2,9 @@
 
 namespace IntegrationViaCep.Core.Domain.Responses
 {
+    /// <summary>
+    /// Standard object of return to Controller
+    /// </summary>
     public class Response
     {
         public HttpStatusCode StatusCode { get; set; }

@@ -37,6 +37,9 @@ namespace IntegrationViaCep.Core.Domain.Models.Outputs
         [JsonProperty("erro", Required = Required.Default)]
         public string? Error { get; set; }
 
+        /// <summary>
+        /// Property that returns whether the object is valid
+        /// </summary>
         [JsonIgnore]
         public bool IsValid
         {

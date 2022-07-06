@@ -3,12 +3,12 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+//Initilize services
 builder.Services.AddControllers();
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(opt =>
 {
+    //API doc
     opt.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "Integration ViaCep API",
@@ -24,6 +24,7 @@ builder.Services.AddSwaggerGen(opt =>
     });
 });
 
+//Initialize inject dependency services.
 ConfigurationIoc.Register(builder.Services);
 
 var app = builder.Build();
@@ -35,9 +36,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
