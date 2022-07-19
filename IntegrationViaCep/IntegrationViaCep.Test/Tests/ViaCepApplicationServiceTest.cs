@@ -1,29 +1,29 @@
 using IntegrationViaCep.Core.Application.Interfaces;
 using IntegrationViaCep.Core.Domain.Models.Inputs;
 using IntegrationViaCep.Core.Domain.Responses;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace IntegrationViaCep.Test.Tests
 {
-    public class CepTest : Startup
+    public class ViaCepApplicationServiceTest : Startup
     {
         private readonly IViaCepApplicationService? _viaCepApplicationService;
 
         /// <summary>
         /// Initialize services to use.
         /// </summary>
-        public CepTest()
+        public ViaCepApplicationServiceTest()
         {
+            //get service by ServiceProvider
             _viaCepApplicationService = _serviceProvider.GetService<IViaCepApplicationService>();
         }
 
         /// <summary>
-        /// Unit test about GetPostalCode of API
+        /// Unit test about GetPostalCode of IViaCepApplicationService
         /// </summary>
         [Fact]
         public void GetPostalCode()
         {
-            Assert.NotNull(_viaCepApplicationService);
+            Assert.NotNull(_viaCepApplicationService); //check if service is null
 
             Task<Response>? task = _viaCepApplicationService?
                 .GetPostalCodeAsync(new PostalCode { CepCode = "83010900" }); //performs the request 
@@ -33,16 +33,18 @@ namespace IntegrationViaCep.Test.Tests
 
             //check the results
             Assert.NotNull(response);
+
+            //should return StatusCode.OK
             Assert.True(response?.StatusCode == System.Net.HttpStatusCode.OK);
         }
 
         /// <summary>
-        /// Unit test about PostSearchPostalCode of API
+        /// Unit test about PostSearchPostalCode of IViaCepApplicationService
         /// </summary>
         [Fact]
         public void PostSearchPostalCode()
         {
-            Assert.NotNull(_viaCepApplicationService);
+            Assert.NotNull(_viaCepApplicationService); //check if service is null
 
             Task<Response>? task = _viaCepApplicationService?
                 .PostSearchPostalCodeAsync(new SearchPostalCode
@@ -57,6 +59,8 @@ namespace IntegrationViaCep.Test.Tests
 
             //check the results
             Assert.NotNull(response);
+
+            //should return StatusCode.OK
             Assert.True(response?.StatusCode == System.Net.HttpStatusCode.OK);
         }
     }
