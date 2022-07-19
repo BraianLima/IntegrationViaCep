@@ -3,7 +3,7 @@
       <img src="https://img.shields.io/badge/Linkedin-Braian%20Freitas-blue"/>
     </a>
     <a href="https://viacep.com.br/" target="_blank">
-      <img src="https://img.shields.io/badge/ViaCep-WebService%20CEP%20abd%20IBGE-green"/>
+      <img src="https://img.shields.io/badge/ViaCep-WebService%20CEP%20and%20IBGE-green"/>
     </a>
 </p>
 
