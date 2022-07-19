@@ -1,4 +1,4 @@
-<p align="center">
+<p>
     <a href="https://www.linkedin.com/in/braian-freitas-de-lima-8968a2115/">
       <img src="https://img.shields.io/badge/Linkedin-Braian%20Freitas-blue"/>
     </a>
