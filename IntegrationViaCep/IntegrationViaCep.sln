@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationViaCep.API", "IntegrationViaCep.API\IntegrationViaCep.API.csproj", "{A9BF230C-24F7-461B-9047-48810B484574}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationViaCep.API", "IntegrationViaCep.API\IntegrationViaCep.API.csproj", "{A9BF230C-24F7-461B-9047-48810B484574}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationViaCep.Core", "IntegrationViaCep.Core\IntegrationViaCep.Core.csproj", "{6C7B1CC2-C8F4-4233-B450-D97EB782E180}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationViaCep.Core", "IntegrationViaCep.Core\IntegrationViaCep.Core.csproj", "{6C7B1CC2-C8F4-4233-B450-D97EB782E180}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationViaCep.Test", "IntegrationViaCep.Test\IntegrationViaCep.Test.csproj", "{A9E4F731-4B00-45E6-BBD4-46CC78D9EAEC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6C7B1CC2-C8F4-4233-B450-D97EB782E180} = {6C7B1CC2-C8F4-4233-B450-D97EB782E180}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{6C7B1CC2-C8F4-4233-B450-D97EB782E180}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C7B1CC2-C8F4-4233-B450-D97EB782E180}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C7B1CC2-C8F4-4233-B450-D97EB782E180}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9E4F731-4B00-45E6-BBD4-46CC78D9EAEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9E4F731-4B00-45E6-BBD4-46CC78D9EAEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9E4F731-4B00-45E6-BBD4-46CC78D9EAEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9E4F731-4B00-45E6-BBD4-46CC78D9EAEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
