@@ -1,3 +1,12 @@
+<p align="center">
+    <a href="https://www.linkedin.com/in/braian-freitas-de-lima-8968a2115/">
+      <img src="https://img.shields.io/badge/Linkedin-Braian%20Freitas-blue"/>
+    </a>
+    <a href="https://viacep.com.br/">
+      <img src="https://img.shields.io/badge/ViaCep-WebService%20CEP%20abd%20IBGE-green"/>
+    </a>
+</p>
+
 #################################### EN ###########################################
 
 # Integration system with ViaCep - returning Brazil postal codes
