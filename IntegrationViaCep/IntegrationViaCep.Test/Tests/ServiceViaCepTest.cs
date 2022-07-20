@@ -40,5 +40,30 @@ namespace IntegrationViaCep.Test.Tests
             Assert.True(httpClient?.BaseAddress == new Uri(GlobalVariables.BASE_ADDRESS_VIA_CEP));
         }
 
+        /// <summary>
+        /// Unit test about RequestViaCep of IServiceViaCep
+        /// </summary>
+        [Fact]
+        public void RequestViaCep()
+        {
+            Assert.NotNull(_serviceViaCep); //check if service is null
+
+            //initialize RequestViaCep
+            Task<string>? task = _serviceViaCep?
+                .RequestViaCepAsync(new HttpClient{ BaseAddress = new Uri(GlobalVariables.BASE_ADDRESS_VIA_CEP)}, 
+                    "ws/83010900/json");
+
+            //check if task is null
+            Assert.NotNull(task);
+
+            string? jsonViaCep = task?.Result;
+
+            //check the results
+            Assert.NotNull(jsonViaCep);
+
+            //check if jsonViaCep contains cep
+            Assert.True(jsonViaCep?.Contains("cep"));
+        }
+
     }
 }
