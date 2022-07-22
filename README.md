@@ -11,7 +11,7 @@
 
 # Integration system with ViaCep - returning Brazil postal codes
 
-### Developed in C#, using .Net 6
+### Developed in C#, using .Net 6 and DDD
 
 ## Use
 - To query the GetPostalCode endpoint, an 8-character zip code must be sent
@@ -21,7 +21,7 @@
 
 # Sistema de integração com o ViaCep - retornando CEPs do Brasil
 
-### Desenvolvido em C#, using .Net 6
+### Desenvolvido em C#, usando .Net 6 e DDD
 
 ## Utilização
 - Para consultar o endpoint GetPostalCode deve ser enviado um CEP de 8 caracteres
