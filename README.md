@@ -24,5 +24,5 @@
 ### Desenvolvido em C#, usando .Net 6 e DDD
 
 ## Utilização
-- Para consultar o endpoint GetPostalCode deve ser enviado um CEP de 8 caracteres
+- Para consultar o endpoint GetPostalCode deve ser enviado um CEP de 8 caracteres.
 - Para consultar o endpoint PostSearchPostalCode deve ser enviado um objeto com o estado (UF), cidade e nome da rua (ou parte do nome da rua), e a API irá pesquisar os CEPs e retornar a pesquisa.
