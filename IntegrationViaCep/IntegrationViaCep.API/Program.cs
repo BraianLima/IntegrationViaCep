@@ -23,6 +23,8 @@ builder.Services.AddSwaggerGen(opt =>
         Version = "v1",
     });
 });
+// Add AWS Lambda support.
+builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
 
 //Initialize inject dependency services.
 ConfigurationIoc.Register(builder.Services);
