@@ -133,3 +133,4 @@ $RECYCLE.BIN/
 
 _NCrunch*
 /IntegrationViaCep/IntegrationViaCep.API/aws-lambda-tools-defaults.json
+/IntegrationViaCep/IntegrationViaCep.API/Properties/launchSettings.json
