@@ -1,7 +1,7 @@
 ﻿using IntegrationViaCep.Core.Domain.Responses;
 using Microsoft.AspNetCore.Mvc;
 
-namespace IntegrationViaCep.API.Controllers
+namespace IntegrationViaCep.Controllers
 {
     public class BaseController : Controller
     {
@@ -16,6 +16,5 @@ namespace IntegrationViaCep.API.Controllers
             //Returns the HttpStatusCode and returns the response
             return StatusCode((int)response.StatusCode, response);
         }
-
     }
 }

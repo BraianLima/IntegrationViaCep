@@ -3,9 +3,8 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//Initilize services
+// Add services to the container.
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(opt =>
 {
     //API doc
@@ -23,21 +22,24 @@ builder.Services.AddSwaggerGen(opt =>
         Version = "v1",
     });
 });
-// Add AWS Lambda support.
-builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
+
+// Add AWS Lambda support. When application is run in Lambda Kestrel is swapped out as the web server with Amazon.Lambda.AspNetCoreServer. This
+// package will act as the webserver translating request and responses between the Lambda event source and ASP.NET Core.
+builder.Services.AddAWSLambdaHosting(LambdaEventSource.RestApi);
 
 //Initialize inject dependency services.
 ConfigurationIoc.Register(builder.Services);
-
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
+app.UseSwagger();
+app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
+app.MapGet("/", context =>
+{
+    context.Response.Redirect("./swagger", permanent: false);
+    return Task.FromResult(0);
+});
 app.Run();
