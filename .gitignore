@@ -131,6 +131,7 @@ $RECYCLE.BIN/
 # Mac desktop service store files
 .DS_Store
 
+# Exclude configuration files
 _NCrunch*
 /IntegrationViaCep/IntegrationViaCep.API/aws-lambda-tools-defaults.json
 /IntegrationViaCep/IntegrationViaCep.API/Properties/launchSettings.json
