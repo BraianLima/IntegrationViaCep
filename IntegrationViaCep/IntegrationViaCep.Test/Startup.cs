@@ -1,5 +1,4 @@
 ﻿using IntegrationViaCep.Core.InfraCrossCutting;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace IntegrationViaCep.Test
 {
