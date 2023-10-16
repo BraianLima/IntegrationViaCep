@@ -5,9 +5,6 @@
     <a href="https://integration-viacep.com/" target="_blank">
       <img src="https://img.shields.io/badge/Integration-ViaCEP-red"/>
     </a>
-    <a href="https://viacep.com.br/" target="_blank">
-      <img src="https://img.shields.io/badge/ViaCep-WebService%20CEP%20and%20IBGE-green"/>
-    </a>
 </p>
 
 #################################### EN ###########################################
