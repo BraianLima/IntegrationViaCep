@@ -22,7 +22,7 @@ namespace IntegrationViaCep.Core.Domain.Utils
             if (success)
                 return NewResponse(HttpStatusCode.OK, Messages.SUCCESS, data);
 
-            return NewResponse(HttpStatusCode.BadRequest, Messages.FAILURE, data);
+            return NewResponse(HttpStatusCode.BadRequest, Messages.FAILURE, null);
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace IntegrationViaCep.Core.Domain.Utils
         /// <param name="message">Message of return.</param>
         /// <param name="data">Any kind of object.</param>
         /// <returns></returns>
-        private Response NewResponse(HttpStatusCode httpStatusCode, string message, object data)
+        private Response NewResponse(HttpStatusCode httpStatusCode, string message, object? data)
         {
             return new Response
             {
