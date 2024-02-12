@@ -22,6 +22,17 @@ builder.Services.AddSwaggerGen(opt =>
         Version = "v1",
     });
 });
+string allowedOrigins = "_allowedOrigins";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        name: allowedOrigins,
+        policy =>
+        {
+            policy.WithOrigins("https://integration-viacep.com", "https://integration-via-cep-front.vercel.app").AllowAnyHeader().AllowAnyMethod();
+        });
+
+});
 
 // Add AWS Lambda support. When application is run in Lambda Kestrel is swapped out as the web server with Amazon.Lambda.AspNetCoreServer. This
 // package will act as the webserver translating request and responses between the Lambda event source and ASP.NET Core.
@@ -34,6 +45,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();
+app.UseCors(allowedOrigins);
 app.UseAuthorization();
 app.MapControllers();
 
