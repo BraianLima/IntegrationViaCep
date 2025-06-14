@@ -2,9 +2,6 @@
     <a href="https://www.linkedin.com/in/braian-freitas-de-lima-8968a2115/" target="_blank">
       <img src="https://img.shields.io/badge/Linkedin-Braian%20Freitas-blue"/>
     </a>
-    <a href="https://integration-viacep.com/" target="_blank">
-      <img src="https://img.shields.io/badge/Integration-ViaCEP-red"/>
-    </a>
 </p>
 
 #################################### EN ###########################################
